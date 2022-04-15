@@ -11,7 +11,7 @@
 
 class HumanA {
 	private:
-		Weapon &_weapon;
+		Weapon &_weapon; //reference because a reference cannot be NULL
 		std::string _name;
 	public:
 		void attack();

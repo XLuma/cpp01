@@ -12,7 +12,7 @@
 class HumanB {
 	private:
 		std::string _name;
-		Weapon *_weapon;
+		Weapon *_weapon; //Pointer because this class doesn't need its weapon initialised right away
 	public:
 		HumanB();
 		HumanB(std::string name);
