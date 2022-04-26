@@ -30,6 +30,10 @@ int main(int argc, char **argv)
                 //found a string
                 outfile << argv[3] << std::endl;
             }
+			else if (line.find(std::string(argv[2])))
+			{
+				
+			}
             else
             {
                 outfile << line << std::endl;
