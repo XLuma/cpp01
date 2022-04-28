@@ -4,12 +4,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
+
 int main(int argc, char **argv)
 {
     std::fstream infile;
     std::ofstream outfile;
     std::string line;
     std::string outfilename;
+	size_t pos;
 
     if (argc != 4)
     {
@@ -32,7 +35,12 @@ int main(int argc, char **argv)
             }
 			else if (line.find(std::string(argv[2])))
 			{
-				
+				while (pos = line.find(std::string(argv[2])))
+				{
+					line.erase(line.find(std::string(argv[2])), std::string(argv[2]));
+					line.insert(pos, std::string(argv[2]));
+				}
+				outfile << line << std::endl;
 			}
             else
             {
