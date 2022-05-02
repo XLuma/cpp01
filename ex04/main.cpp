@@ -12,6 +12,8 @@ int main(int argc, char **argv)
     std::ofstream outfile;
     std::string line;
     std::string outfilename;
+	std::string searchedstr;
+	std::string newstr;
 	size_t pos;
 
     if (argc != 4)
@@ -19,6 +21,8 @@ int main(int argc, char **argv)
         std::cout << "usage: ./sed [filename] [string 1] [string 2]" << std::endl;
         return 1;
     }
+	newstr = std::string(argv[3]);
+	searchedstr = std::string(argv[2]);
     infile.open(argv[1]);
     if (infile.is_open())
     {
@@ -27,18 +31,18 @@ int main(int argc, char **argv)
         outfile.open(outfilename);
         while (std::getline(infile, line))
         {
-            std::cout << line << std::endl;
-            if (line.compare(std::string(argv[2])) == 0)
+            if (line.compare(searchedstr) == 0)
             {
                 //found a string
-                outfile << argv[3] << std::endl;
+                outfile << newstr << std::endl;
             }
-			else if (line.find(std::string(argv[2])))
+			else if (line.find(searchedstr, 0) != std::string::npos)
 			{
-				while (pos = line.find(std::string(argv[2])))
+				while (line.find(searchedstr, 0) != std::string::npos)
 				{
-					line.erase(line.find(std::string(argv[2])), std::string(argv[2]));
-					line.insert(pos, std::string(argv[2]));
+					pos = line.find(searchedstr, 0);
+					line.erase(line.find(searchedstr), searchedstr.length());
+					line.insert(pos, newstr);
 				}
 				outfile << line << std::endl;
 			}

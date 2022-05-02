@@ -1,6 +1,6 @@
 NAME = sed
 CPP = c++
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 STD = -std=c++98
 SRCS = main.cpp
 
