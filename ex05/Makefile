@@ -1,8 +1,8 @@
-NAME = sed
+NAME = harl
 CPP = c++
 FLAGS = -Wall -Werror -Wextra
 STD = -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp Harl.cpp
 
 .cpp.o:
 	@c++ ${FLAGS}  -c $< -o ${<:.cpp=.o}
