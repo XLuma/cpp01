@@ -6,7 +6,7 @@
 
 int main()
 {
-	Zombie *zombie = new Zombie("Alice");
+	Zombie *zombie = newZombie("Alice");
 
 	randomChump("Bob");
 	zombie->Announce();
